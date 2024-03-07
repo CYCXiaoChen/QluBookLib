@@ -1,15 +1,19 @@
-Cron: 30 30 3 * * * #将在 每天的 5:30:30 开始登陆，并等待到6:00 开始Book，期间自己登陆图书馆预约系统会造成程序失效
+Cron: 30 30 5 * * * #将在 每天的 5:30:30 开始登陆，并等待到6:00 开始Book，期间自己登陆图书馆预约系统会造成程序失效
 Threads: 5 #每个账号开启5个并发线程
 LogLevel: 1 #日志等级 暂时没啥用
 User:
-  - Username: "202111140023"
-    Password: "qlu280332"
+  - Username: "202111140022"
+    Password: "qlu090034"
     BookList:
-      - 6518
-      - 6519
-    InfoAPI:  #通知api 自行修改咯 示例：http://assdadas.das.d.d/das/asd?a={%msg%}&b=zhz
+      - 8253
+    InfoAPI:  
   - Username: "202111140009"
     Password: "qlu195225"
     BookList:
-      - 8265
-    InfoAPI: 
+      - 8252
+    InfoAPI:  
+  - Username: "202111140006"
+    Password: "qlu011930"
+    BookList:
+      - 8251
+    InfoAPI:  
