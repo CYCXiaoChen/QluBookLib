@@ -4,6 +4,9 @@ on:
   schedule:
     # Runs at 04:00 UTC every day
     - cron: '0 5 * * *'
+  workflow_dispatch: # 允许手动触发
+  push:
+    branches: [ main ] # 每次向 main 分支推送时自动运行
 
 jobs:
   build-and-run:
