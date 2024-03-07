@@ -3,7 +3,7 @@ name: Build and Run Book on Windows
 on:
   schedule:
     # Runs at 05:00 UTC every day
-    - cron: '0 21 * * *'
+    - cron: '15 21 * * *'
   workflow_dispatch: # 允许手动触发
   push:
     branches: [ main ] # 每次向 main 分支推送时自动运行
@@ -33,6 +33,6 @@ jobs:
 
     - name: Run Book with config and auto-terminate
       run: |
-        Start-Process -FilePath .\Book.exe -ArgumentList 'config.yml' -NoNewWindow -PassThru | % { Start-Sleep -Seconds 3900; Stop-Process -Id $_.Id }
+        Start-Process -FilePath .\Book.exe -ArgumentList 'config.yml' -NoNewWindow -PassThru | % { Start-Sleep -Seconds 3000; Stop-Process -Id $_.Id }
       shell: powershell
       working-directory: ./cmd
