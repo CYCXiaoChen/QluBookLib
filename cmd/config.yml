@@ -5,7 +5,8 @@ User:
   - Username: "202111140023"
     Password: "qlu280332"
     BookList:
-      - 8264
+      - 6518
+      - 6519
     InfoAPI:  #通知api 自行修改咯 示例：http://assdadas.das.d.d/das/asd?a={%msg%}&b=zhz
   - Username: "202111140009"
     Password: "qlu195225"
