@@ -2,17 +2,13 @@ Cron: 30 30 5 * * * #将在 每天的 5:30:30 开始登陆，并等待到6:00 �
 Threads: 5 #每个账号开启5个并发线程
 LogLevel: 1 #日志等级 暂时没啥用
 User:
-  - Username: "201900000001"
-    Password: "qlu000001"
+  - Username: "202111140022"
+    Password: "qlu090034"
     BookList:
-      - 1222
-      - 1223
-      - 1224
+      - 8264
     InfoAPI:  #通知api 自行修改咯 示例：http://assdadas.das.d.d/das/asd?a={%msg%}&b=zhz
-  - Username: "201900000002"
-    Password: "qlu000005"
+  - Username: "202111140009"
+    Password: "qlu195225"
     BookList:
-      - 3222
-      - 3223
-      - 3224
+      - 8265
     InfoAPI: 
