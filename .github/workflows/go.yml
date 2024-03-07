@@ -1,0 +1,23 @@
+name: Run Go Library Booking Script
+
+on:
+  schedule:
+    # Runs at 04:00 UTC every day
+    - cron: '0 5 * * *'
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.18'  # Adjust this to match the Go version you use
+    - name: Build
+      run: go build -v ./cmd/main.go # Assuming the main Go file is under the 'cmd' directory
+    - name: Test
+      run: go test -v ./...  # This runs tests for all subdirectories
+    - name: Run
+      run: ./cmd/book  # Replace './cmd/book' with the path and name of your built executable
