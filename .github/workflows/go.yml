@@ -2,7 +2,7 @@ name: Build and Run Book on Windows
 
 on:
   schedule:
-    # Runs at 04:00 UTC every day
+    # Runs at 05:00 UTC every day
     - cron: '0 5 * * *'
   workflow_dispatch: # 允许手动触发
   push:
@@ -20,8 +20,17 @@ jobs:
       with:
         go-version: '1.18' # Adjust this to match the Go version you use
 
+    - name: Change to cmd directory
+      run: |
+        cd cmd
+        dir # List files for debugging purposes
+
     - name: Build the Book executable
-      run: go build -o Book.exe ./cmd/
+      run: |
+        go build -o Book.exe
+      working-directory: ./cmd
 
     - name: Run Book with config
-      run: .\Book.exe config.yml
+      run: |
+        .\Book.exe config.yml
+      working-directory: ./cmd
