@@ -2,7 +2,7 @@ name: Build and Run Book on Windows
 
 on:
   schedule:
-    # Runs at 05:00 UTC every day
+    # 每天的UTC时间21:15自动运行，即北京时间第二天的05:15
     - cron: '15 21 * * *'
   workflow_dispatch: # 允许手动触发
   push:
@@ -18,21 +18,26 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
-        go-version: '1.18' # Adjust this to match the Go version you use
+        go-version: '1.18' # 根据需要调整 Go 版本
+
+    - name: Set timezone to Beijing Time
+      run: Set-TimeZone -Id "China Standard Time"
+      shell: powershell
 
     - name: Change to cmd directory and list files
       run: |
         cd cmd
-        dir # List files for debugging purposes
+        dir # 列出文件以供调试
       shell: powershell
 
     - name: Build the Book executable
       run: |
         go build -o Book.exe
       working-directory: ./cmd
+      shell: powershell
 
     - name: Run Book with config and auto-terminate
       run: |
-        Start-Process -FilePath .\Book.exe -ArgumentList 'config.yml' -NoNewWindow -PassThru | % { Start-Sleep -Seconds 3000; Stop-Process -Id $_.Id }
+        Start-Process -FilePath .\Book.exe -ArgumentList 'config.yml' -NoNewWindow -PassThru | % { Start-Sleep -Seconds 3900; Stop-Process -Id $_.Id }
       shell: powershell
       working-directory: ./cmd
