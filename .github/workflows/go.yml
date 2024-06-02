@@ -2,7 +2,7 @@ name: Build and Run Book on Windows
 
 on:
   schedule:
-    # 每天的UTC时间21:15自动运行，即北京时间第二天的05:15
+    # 每天的UTC时间21:15自动运行，即北京间第二天的05:15
     - cron: '15 21 * * *'
   workflow_dispatch: # 允许手动触发
   push:
